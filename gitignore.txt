@@ -1,0 +1,5 @@
+pagbankapi/target/
+
+pagbankapi/src/main/resources/application-dev.properties
+
+pagbankapp/node_modules/

@@ -1,0 +1,63 @@
+pagbankapi - API de integração com Pagbank
+
+Java, Spring Boot, JPA, WebFlux, RestTemplate, H2
+
+https://developer.pagbank.com.br/docs/o-pagbank
+
+Integra com a API de Pedido
+
+A API de Pedidos simplifica a gestão de compras e pagamentos, oferecendo opções variadas de formas de pagamento como Cartão de Crédito, Débito, Boleto ou PIX, além de fornecer funcionalidades complementares, como divisão do pagamento.
+
+-----------------------------------------------
+
+Usando ambiente de testes do Pagbank (sandbox)
+
+No application.properties configurar:
+
+pagbank.api.url=https://sandbox.api.pagseguro.com
+
+pagbank.api.token=SEU_TOKEN_PAGBANK_AQUI
+
+SEU_TOKEN_PAGBANK_AQUI é uma String obtida a partir do cadastro no Pagbank para se autenticar na API deles
+
+-----------------------------------------------
+
+Casos de Uso implementados e testados
+
+1) Criar pedido com QR Code (PIX)
+https://developer.pagbank.com.br/reference/criar-pedido-pedido-com-qr-code
+
+2) Criar e pagar pedido com Boleto
+https://developer.pagbank.com.br/reference/criar-pagar-pedido-com-boleto
+
+Instruções Simulador PIX e Boleto
+https://developer.pagbank.com.br/docs/simulador
+
+3) Criar e pagar um pedido com cartão
+https://developer.pagbank.com.br/reference/criar-pagar-pedido-com-cartao
+
+Para utilizar cartão, os dados do mesmo devem ser criptografados
+
+Cartões de teste
+https://developer.pagbank.com.br/docs/cartoes-de-teste
+
+Chaves públicas
+https://developer.pagbank.com.br/docs/chaves-publicas
+
+Chave pública padrão ambiente Sandbox (utilizada na criptografia dos dados do cartão)
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAr+ZqgD892U9/HXsa7XqBZUayPquAfh9xx4iwUbTSUAvTlmiXFQNTp0Bvt/5vK2FhMj39qSv1zi2OuBjvW38q1E374nzx6NNBL5JosV0+SDINTlCG0cmigHuBOyWzYmjgca+mtQu4WczCaApNaSuVqgb8u7Bd9GCOL4YJotvV5+81frlSwQXralhwRzGhj/A57CGPgGKiuPT+AOGmykIGEZsSD9RKkyoKIoc0OS8CPIzdBOtTQCIwrLn2FxI83Clcg55W8gkFSOS6rWNbG5qFZWMll6yl02HtunalHmUlRUL66YeGXdMDC2PuRcmZbGO5a/2tbVppW6mfSWG3NPRpgwIDAQAB
+
+------------------------------------------------
+
+pagbankapp - aplicação React que se integra com pagbankapi
+
+Possibilita ao usuário informar dados de um pedido:
+Cliente, Endereço, Item de Venda, Forma de pagamento (PIX, BOLETO ou CARTÃO DE CRÉDITO)
+
+Configurar as variáveis em constants.ts
+
+API_URL
+
+CHAVE_PUBLICA_PAGBANK
+
+------------------------------------------------
